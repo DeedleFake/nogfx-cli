@@ -2,8 +2,9 @@ package main
 
 import (
 	"bufio"
-	"github.com/tobiassjosten/nogfx-cli/tui"
 	"net"
+
+	"github.com/DeedleFake/nogfx-cli/tui"
 )
 
 func main() {

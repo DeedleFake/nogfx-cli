@@ -7,7 +7,7 @@ import (
 
 type InputBox struct {
 	screen  *Screen
-	written string
+	written []rune
 }
 
 func (inputBox *InputBox) SetScreen(screen *Screen) {
@@ -15,16 +15,16 @@ func (inputBox *InputBox) SetScreen(screen *Screen) {
 }
 
 func (inputBox *InputBox) Add(ch rune) {
-	inputBox.written += string(ch)
+	inputBox.written = append(inputBox.written, ch)
 }
 
 func (inputBox *InputBox) Remove() {
-	inputBox.written = inputBox.written[0 : len(inputBox.written)-1]
+	inputBox.written = inputBox.written[:len(inputBox.written)-1]
 }
 
 func (inputBox *InputBox) Get() string {
-	written := inputBox.written
-	inputBox.written = ""
+	written := string(inputBox.written)
+	inputBox.written = inputBox.written[:0]
 	return written
 }
 
